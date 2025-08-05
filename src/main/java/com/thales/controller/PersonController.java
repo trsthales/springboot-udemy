@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.thales.dto.PersonDTO;
-import com.thales.model.Person;
 import com.thales.services.PersonService;
 
 @RestController
