@@ -27,11 +27,11 @@ jobs:
           cache: maven
           
       - name: Build Application .jar
-        working-directory: ./springboot/curso-springboot-udemy
+        working-directory: ./curso-springboot-udemy
         run: mvn clean package
 
       - name: Docker Compose Build
-        working-directory: ./springboot
+        working-directory: ./
         run: docker compose build
 
       - name: Push to Docker Hub Container Registry
