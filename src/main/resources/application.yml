@@ -1,6 +1,8 @@
+server:
+  port: 80
 spring:
   application:
-    name: curso-springboot-udemy
+    name: curso-springboot-udemy		
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/springboot?useTimezone=true&serverTimezone=UTC
