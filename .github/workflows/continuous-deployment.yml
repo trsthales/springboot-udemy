@@ -25,3 +25,18 @@ jobs:
           distribution: 'temurin' # See 'Supported distributions' for available options
           java-version: '21'
           cache: maven
+          
+      - name: Build Application .jar
+        working-directory: ./springboot/curso-springboot-udemy
+        run: mvn clean package
+
+      - name: Docker Compose Build
+        working-directory: ./springboot
+        run: docker compose build
+
+      - name: Push to Docker Hub Container Registry
+        run: |
+          docker tag ${{ secrets.DOCKER_USER_NAME }}/curso-springboot-udemy:latest ${{ secrets.DOCKER_USER_NAME }}/curso-springboot-udemy:${{ github.run_id }}
+        
+          docker push ${{ secrets.DOCKER_USER_NAME }}/curso-springboot-udemy:latest
+          docker push ${{ secrets.DOCKER_USER_NAME }}/curso-springboot-udemy:${{ github.run_id }}  
