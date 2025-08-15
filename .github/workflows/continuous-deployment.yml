@@ -30,7 +30,9 @@ jobs:
         run: mvn clean package -DskipTests
 
       - name: Docker Compose Build
-        run: docker compose build
+        with:
+          context: .
+          run: docker compose build
 
       - name: Push to Docker Hub Container Registry
         run: |
